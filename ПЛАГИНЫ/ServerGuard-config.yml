@@ -1,0 +1,163 @@
+#ServerGuard plugin by Pa4ok
+#https://github.com/Pa4ok
+#https://vk.com/Pa4ok
+
+#ban command
+banCommand: 'ipban %player% %reason%'
+
+#kick command
+kickCommand: 'kick %player% %reason%'
+
+#log exeption while modules packet events listening
+#more for debug than for production
+#can make many spam in console
+logPacketExeption: true
+
+#HackDetect module
+hackdetect:
+    enable: true
+    
+    #if simple player is op, there will be ban
+    opCheck: true
+    
+    #if simple player is in gamemode 1, there will be ban
+    #bypass permission 'serverguard.hackdetect.gmcheckbypass'
+    #if you don't use bypass permission, you can add it to badPerms cheks
+    gmCheck: true
+
+    #period for check all players
+    period: 60
+    
+    #whitelist for checks
+    admins: 
+    - 'Pa4ok'
+    
+    #bad permissions, if simple player has one of they, there will be ban
+    permCheck: true
+    badPerms:
+    - '*'
+    - 'bukkit.*'
+    - 'worldedit.*'
+    - 'worldguard.*'
+    - 'maxbans.*'
+    
+#ConsoleCommand module
+#If player commands start with on of this strings it will be canceled
+#If string ends of * plugin will be search full equals command, not starts with
+#From console all commands works
+consolecommand:
+    enable: true
+
+    commands:
+    - 'stop'
+    - 'start'
+    - 'restart'
+    - 'reload'
+    - 'op'
+    - 'deop'
+    - 'killall'
+    - 'plugman'
+    - 'pl*'
+    - 'plugins'
+    - 'hd readtext'
+    - 'holo readtext'
+    - 'hologram readtext'
+    - 'holograms readtext'
+    - 'asw pmanager'
+    - 'autosaveworld pmanager'
+    
+#PortalFix module
+portalfix:
+    enable: true
+    
+    #only players can use portals, no items, no any mobs...
+    onlyPlayers: true
+    
+    #fix dupe with minecart
+    #not actual if onlyPlayers is true
+    minecartDupeFix: false
+    
+#RailDupeFix module
+#fix rails dupe with piston
+raildupefix:
+    enable: true
+    
+#WitherDupeFix module
+#fix dupe with wither heads and worldguard regions
+witherdupefix:
+    enable: true
+
+#StackSizeFix module
+#items from this list will ckeck for stacksize, if it more than 1, it will be fixed
+stacksizefix:
+    enable: true
+    
+    items:
+    - "APPLIEDENERGISTICS2_ITEMITEMBASICSTORAGECELL64K:-1"
+    - "APPLIEDENERGISTICS2_ITEMITEMBASICSTORAGECELL16K:-1"
+    - "APPLIEDENERGISTICS2_ITEMITEMBASICSTORAGECELL4K:-1"
+    - "APPLIEDENERGISTICS2_ITEMITEMBASICSTORAGECELL1K:-1"
+    - "APPLIEDENERGISTICS2_ITEMTOOLPORTABLECELL:-1"
+    - "IC2_ITEMTOOLBOX:-1"
+    - "EXTRACELLS_STORAGEFLUID:-1"
+    - "EXTRACELLS_STORAGEPHYSICAL:-1"
+    - "THAUMICENERGISTICS_STORAGEESSENTIA:-1"
+    
+    #log to console not founded items from list
+    warnBadItems: false
+    
+#BugItemFix module
+bugitemfix:
+    enable: true
+    
+    #fix items with count < 0
+    nullCountFix: true
+    
+    #delete bad enchantments
+    #if you disable some mod enchantment, it will be removed from items
+    deleteIncorrectEnchantments: true
+    
+    #checks enchants for max level
+    #set -1 to disable 
+    maxEnchantLevel: 10
+    
+#BookFix module
+#fix book packets dos
+bookfix:
+    enable: false
+    
+    #mode of fix
+    #0 - block all book packets
+    #1 - experemental fix with packet limits
+    mode: 1
+    
+    #ms for one book packet (1 mode)
+    packetPeriod: 500
+    
+    #should pluging kick players that send packets faster then packetPeriod
+    kick: true
+    
+#ShearDupeFixModule
+#fix cows & mushrooms dupe (works on vanila)
+sheardupefix:
+    enable: true
+
+#HangingSpamFixModule
+#Prevent to place over 15 painting and frames in 1.5 blocks radius
+hangingspamfix:
+    enable: true
+
+    #radius for searching frames & paintings
+    radius: 1.5
+
+    #limit for place in radius
+    limit: 10
+
+#DO NOT ENABLE THIS
+#TEST & DANGEROUS MODULE
+slowplayernetworkfix:
+    enable: false
+    period: 200
+    badPing: 1000
+    kickReason: 'Slow internet connection'
+

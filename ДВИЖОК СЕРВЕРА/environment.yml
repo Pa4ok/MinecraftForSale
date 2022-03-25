@@ -1,0 +1,84 @@
+# Setting: general.entity.skip-ticks Default: true # If enabled, allows the default entity tick skip feature when no players are near.
+# Setting: general.tileentity.skip-ticks Default: true # If enabled, turns on tileentity tick skip feature when no players are near.
+# Setting: general.tileentity.prevent-invalid-updates Default: true # Used to determine if a tileentity should tick and if not the TE is added to a ban list. Note: This should help improve performance.
+# Setting: general.tileentity.debug.can-update-warning Default: false # Set true to detect which tileentities should not be ticking.
+# Setting: general.tileentity.debug.inventory-warning Default: false # Set true to detect which tileentities with inventory failed to detect size for Bukkit's InventoryType enum. Note: This may detect a false-positive.
+# Setting: general.tileentity.debug.place-warning Default: false # Warn when a mod requests tile entity from a block that doesn't support one
+
+general:
+  entity:
+    skip-ticks: true
+  tileentity:
+    skip-ticks: true
+    prevent-invalid-updates: true
+    debug:
+      can-update-warning: false
+      inventory-warning: false
+      place-warning: false
+world:
+  normal:
+    keep-world-loaded: true
+  nether:
+    keep-world-loaded: true
+    enabled: true
+  the_end:
+    keep-world-loaded: false
+    enabled: true
+entity:
+  default:
+    net-minecraft-entity-item-EntityItem:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-passive-EntityChicken:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-passive-EntitySheep:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-item-EntityMinecartChest:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-player-EntityPlayerMP:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-monster-EntityCreeper:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-monster-EntitySpider:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-monster-EntitySkeleton:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-monster-EntityZombie:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-monster-EntityWitch:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-passive-EntitySquid:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+    net-minecraft-entity-item-EntityFallingBlock:
+      tick-no-players: false
+      never-ever-tick: false
+      tick-interval: 1
+tileentity:
+  default:
+    net-minecraft-tileentity-TileEntityChest:
+      tick-no-players: false
+      tick-interval: 1
+    net-minecraft-tileentity-TileEntityMobSpawner:
+      tick-no-players: false
+      tick-interval: 1

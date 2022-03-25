@@ -1,0 +1,251 @@
+# Setting: general.max-tab-players-visible Default: -1 # How many players will visible in the tab list
+# Setting: general.player-shuffle Default: 0 # This prevents players from 'gaming' the server, and strategically relogging to increase their position in the tick order
+# Setting: general.allow-nether-portal-besides-overworld Default: false # Allow nether portals in dimensions besides overworld
+# Setting: general.spawn-protect Default: true # Whether to enable Thermos' all-seeing protection in the spawn world
+# Setting: general.flowing-lava-decay Default: false # Lava behaves like vanilla water when source block is removed
+# Setting: general.allow-tnt-punishment Default: true # TNT ability to push other entities (including other TNTs)
+# Setting: general.item-merge-radius Default: 2.5 # Item Merge Radius
+# Setting: general.exp-merge-radius Default: 3.0 # Experience Merge Radius
+# Setting: general.item-despawn-rate Default: 6000 # Controls the amount of ticks required before an item entity on the ground will despawn
+# Setting: general.arrow-despawn-rate Default: 1200 # Controls the amount of ticks required before an on ground arrow entity will despawn
+# Setting: general.random-light-updates Default: false # Controls whether or not the server will randomly sample chunks in order to verify and fix lighting
+# Setting: general.spigot-view-distance Default: 4 # Spigot view distance (pa4ok: works on entity spawn & activation or something else)
+# Setting: general.mob-spawn-range Default: 4 # Radius in chunks around the player in which mobs will spawn
+# Setting: general.autosave Default: 6000 # Number of ticks for each save-all event
+# Setting: general.exact-login-location Default: false # Since Minecraft added the feature of pushing entities out whenever they are stuck inside a block, players have often found themselves above the location they logged out of when logging back in (especially if they were in a cave)
+# Setting: general.watchdog.enable Default: false # Enable spigot watchdog thread to monitoring server status
+# Setting: general.watchdog.timeout Default: 60 # How long in seconds the server should go unresponsive before performing a thread dump in the console and, if configured, attempt to shut down and restart
+# Setting: general.watchdog.restart-on-crush Default: true # Controls whether or not the server will automatically attempt to restart your server when a crash occurs
+# Setting: general.watchdog.restart-script Default: ./start.sh # The location for your server's startup script. This path will be used for the /restart command and for the restart-on-crash option
+# Setting: world.saving.repeat-invalid-nbt-reading Default: false # Repeat chunk NBT reading on error
+# Setting: world.saving.remove-invalid-chunks Default: false # Remove chunk is NBT reading was failed
+# Setting: world.saving.store-saving-chunks Default: true # Store saving chunks to prevent writing and reading at the same time
+# Setting: world.saving.extended-chunks Default: true # Enable large chunks (more than 1 MiB) saving
+# Setting: world.saving.zstd-chunk-compression Default: false # Use zstd compression instead zlib
+# Setting: world.saving.truncate-region-size Default: 0 # Truncate region file larger than N MiB (0 - disable)
+# Setting: world.saving.large-chunk-log-rate Default: 0.8 # Percentage of maximum chunk size after which chunk saving will be logged
+# Setting: world.chunk.load-on-request Default: true # Forces Chunk Loading on 'Provide' requests (speedup for mods that don't check if a chunk is loaded
+# Setting: world.chunk.load-on-forge-tick Default: false # Forces Chunk Loading during Forge Server Tick events
+# Setting: world.chunk.unload-grace-period Default: 0 # Grace period of no-ticks before unload
+# Setting: world.chunk.gc.grace-period Default: 600 # The ticks between each chunk garbage collection consideration (0 - disabled)
+# Setting: world.chunk.gc.load-threshold Default: 0 # Number of chunks that need to be loaded since the last garbage collection before considering garbage collection (0 - gc only by grace-period
+# Setting: world.entity.check-bounding-boxes Default: true # Removes a living entity that exceeds the max bounding box size.
+# Setting: world.entity.bounding-box-max-size Default: 1000 # Max size of an entity's bounding box before removing it (either being too large or bugged and 'moving' too fast)
+# Setting: world.entity.max-speed-remove Default: false # Removes any entity that exceeds max speed.
+# Setting: world.entity.max-speed Default: 100 # Square of the max speed of an entity before removing it
+# Setting: world.entity.max-speed-player Default: 100 # Square of the max speed of an player before stopping it
+# Setting: world.entity.despawn-immediate Default: false # Remove any despawned entity immediate if possible
+# Setting: world.growth-rate.cactus Default: 100 # Cactus growth modifier
+# Setting: world.growth-rate.cane Default: 100 # Cane growth modifier
+# Setting: world.growth-rate.melon Default: 100 # Melon growth modifier
+# Setting: world.growth-rate.mushroom Default: 100 # Mushroom growth modifier
+# Setting: world.growth-rate.pumpkin Default: 100 # Pumpkin growth modifier
+# Setting: world.growth-rate.sapling Default: 100 # Sapling growth modifier
+# Setting: world.growth-rate.wheat Default: 100 # Wheat growth modifier
+# Setting: world.tracking-range.player Default: 48 # Controls the range in blocks that entities will become "visible"
+# Setting: world.tracking-range.animal Default: 48 # Controls the range in blocks that entities will become "visible"
+# Setting: world.tracking-range.monster Default: 48 # Controls the range in blocks that entities will become "visible"
+# Setting: world.tracking-range.misc Default: 32 # Controls the range in blocks that entities will become "visible"
+# Setting: world.tracking-range.max Default: 64 # Controls the range in blocks that entities will become "visible"
+# Setting: world.activation-range.animal Default: 32 # Controls the range in blocks that entities will become 'activated' - entities outside of this range will tick at a reduced rate to prevent server lag
+# Setting: world.activation-range.monster Default: 32 # Controls the range in blocks that entities will become 'activated' - entities outside of this range will tick at a reduced rate to prevent server lag
+# Setting: world.activation-range.misc Default: 16 # Controls the range in blocks that entities will become 'activated' - entities outside of this range will tick at a reduced rate to prevent server lag
+# Setting: world.spawn-limit.monster Default: 70 # Amount of monsters that can spawn per-world
+# Setting: world.spawn-limit.animal Default: 15 # Amount of animals that can spawn per-world
+# Setting: world.spawn-limit.water-animal Default: 5 # Amount of water animals that can spawn per-world
+# Setting: world.spawn-limit.ambient Default: 15 # Amount of ambient creatures (aka, bats) that can spawn per-world
+# Setting: world.spawn-rate.monster Default: 1 # Tick delay for animal spawns
+# Setting: world.spawn-rate.animal Default: 400 # Tick delay for monster spawns
+# Setting: performance.fast-path-finding Default: true # Optimize path finding for entity AI
+# Setting: performance.path-finding-custom-cooldown Default: 4 # Cooldown for path finding for entity AI that hasn't default cooldown
+# Setting: performance.path-finding-cooldown-multiplier Default: 1.0 # Cooldown multipier for path finding for entity AI
+# Setting: performance.deny-multiple-player-update Default: false # Deny muliple player update by C03PacketPlayer
+# Setting: performance.regions-cache-size Default: 256 # Size of regions (union of chunks) cache
+# Setting: performance.fast-collision-detection Default: true # Optimize collision detection
+# Setting: performance.full-disable-fire-catching Default: false # [Pa4ok] Disable fire catching include all events
+# Setting: performance.item-stack-full-match-rate Default: 10 # Delay in ticks before item stack full match rate
+# Setting: performance.use-async-lighting Default: false # World async lighting !!!buggy with some mods etc thaumcraft!!!
+# Setting: performance.limits.growth-chunks-per-tick Default: 650 # Controls the amount of chunks that will be updated for growth per tick
+# Setting: performance.limits.scheduled-blocks-per-tick Default: 5000 # Maximum amount of blocks than can be scheduled per tick
+# Setting: performance.limits.collisions-per-entity Default: 8 # Max Entity Collisions
+# Setting: performance.limits.tile-max-tick-time Default: 1000 # The time in ms that tileentity operations can consume to calculate before the server skips on to the next task
+# Setting: performance.limits.entity-max-tick-time Default: 1000 # The time in ms that entity operations can consume to calculate before the server skips on to the next task
+# Setting: performance.limits.max-tnt-ticks-per-tick Default: 100 # Maximum amount of txt explosions per tick
+# Setting: performance.redstone.repeater-update-speed Default: -1 # How many milliseconds the server must ignore before trying repeater updates
+# Setting: performance.redstone.torch-update-speed Default: -1 # How many milliseconds the server must ignore before trying redstoneTorch updates
+# Setting: performance.redstone.hopper-transfer-delay Default: 8 # The time in ticks between when a hopper pushes/pulls/receives items and when the hopper pushes/pulls more items
+# Setting: performance.redstone.hopper-check-delay Default: 8 # The time in ticks hoppers attempt to push/pull items since the last attempt
+# Setting: network.netty-thread-count Default: 4 # Controls the amount of threads Netty will use to perform networking (-1 = available processors)
+# Setting: network.connection-throttle Default: 4000 # The delay before a client is allowed to connect again after a recent connection attempt
+# Setting: network.max-player-update-count Default: 5 # Max count of player updates by C03PacketPlayer
+# Setting: network.max-bulk-chunks Default: 5 # Max bulk chunks that sends per packet
+# Setting: plugin.bungee Default: false # Toggles the various BungeeCord-only features
+# Setting: plugin.profiling Default: false # Allows the use of the command /timings. Used to measure time taken by plugin for events
+# Setting: plugin.metrics Default: false # Enable spigot plugin metrics
+# Setting: plugin.query Default: false # Does the server return the list of plugins when queried remotely
+# Setting: plugin.no-fallback-alias Default: true # Don't allow commands of the format plugin:cmd, the plugin: will be removed (recommended to keep at true)
+# Setting: plugin.tab-complete Default: true # Controls whether or not a player should be allowed to press the TAB key to auto-complete commands
+# Setting: debug.thread-contention-monitoring Default: false # Set true to enable Java's thread contention monitoring for thread dumps
+# Setting: debug.bukkit-warning-state Default: default # Does the server show warnings when a plugin registers a deprecated event (default/true/false)
+# Setting: debug.dump-materials Default: false # Dumps all materials with their corresponding id's
+# Setting: debug.fail-fast-overworld-reload Default: false # Crash server while secondary overworld loading (prevent ID corruption)
+# Setting: debug.retry-structure-gen-on-fail Default: false # Retry generate world structure on ConcurrentModificationException
+# Setting: debug.skip-collision-entity-in-chunk-count Default: -1 # [Pa4ok] Count of mobs in chunk to disable collisions calculations (-1 to disable)
+# Setting: debug.disable-cauldron-entity-movement-checks Default: true # [Pa4ok] Disable all movement checks
+# Setting: logging.material-injection Default: false # Log material injection event
+# Setting: logging.client-mod-list Default: false # Print client's mod list during attempt to join
+# Setting: logging.world-leak-debug Default: false # Log worlds that appear to be leaking (buggy)
+# Setting: logging.detailed-logging Default: false # Add stack traces to dev logging
+# Setting: logging.dump-chunks-on-deadlock Default: false # Dump chunks in the event of a deadlock (helps to debug the deadlock)
+# Setting: logging.dump-heap-on-deadlock Default: false # Dump the heap in the event of a deadlock (helps to debug the deadlock)
+# Setting: logging.dump-threads-on-warn Default: false # Dump the the server thread on deadlock warning (delps to debug the deadlock)
+# Setting: logging.entity-collision-checks Default: false # Whether to log entity collision/count checks
+# Setting: logging.entity-speed-removal Default: false # Whether to log entity removals due to speed
+# Setting: logging.user-login-debug-info Default: false # Set true to enable debugging user's login process
+# Setting: logging.user-commands Default: true # Controls whether or not to print player commands to console/log which will be saved in your logs folder in your servers directory
+# Setting: logging.non-main-thread-chunk-loading Default: true # Log chunk loading from not 'Server Thread'
+# Setting: logging.collision-warn-size Default: 200 # Number of colliding entities in one spot before logging a warning. Set to 0 to disable
+# Setting: logging.entity-count-warn-size Default: 0 # Number of entities in one dimension logging a warning. Set to 0 to disable
+# Setting: message.shutdown Default: Server closed # Server shutdown message
+# Setting: message.restart Default: Server is restarting # Server restarting message
+# Setting: message.whitelist Default: You are not whitelisted on this server! # Whitelist message
+# Setting: message.unknown-command Default: Unknown command. Type "/help" for help. # Unknown command message
+# Setting: message.server-full Default: The server is full! # Full server message
+# Setting: message.outdated-client Default: Outdated client! Please use {} # Outdated client message
+# Setting: message.outdated-server Default: Outdated server! I'm still on {} # Outdated server message
+
+general:
+  max-tab-players-visible: -1
+  player-shuffle: 0
+  allow-nether-portal-besides-overworld: false
+  spawn-protect: true
+  flowing-lava-decay: false
+  allow-tnt-punishment: true
+  item-merge-radius: 2.5
+  exp-merge-radius: 3.0
+  item-despawn-rate: 6000
+  arrow-despawn-rate: 1200
+  random-light-updates: false
+  spigot-view-distance: 4
+  mob-spawn-range: 4
+  autosave: 6000
+  exact-login-location: false
+  watchdog:
+    enable: false
+    timeout: 60
+    restart-on-crush: true
+    restart-script: ./start.sh
+world:
+  saving:
+    repeat-invalid-nbt-reading: false
+    remove-invalid-chunks: false
+    store-saving-chunks: true
+    extended-chunks: true
+    zstd-chunk-compression: false
+    truncate-region-size: 0
+    large-chunk-log-rate: 0.8
+  chunk:
+    load-on-request: true
+    load-on-forge-tick: false
+    unload-grace-period: 0
+    gc:
+      grace-period: 600
+      load-threshold: 0
+  entity:
+    check-bounding-boxes: true
+    bounding-box-max-size: 1000
+    max-speed-remove: false
+    max-speed: 100
+    max-speed-player: 100
+    despawn-immediate: false
+  growth-rate:
+    cactus: 100
+    cane: 100
+    melon: 100
+    mushroom: 100
+    pumpkin: 100
+    sapling: 100
+    wheat: 100
+  tracking-range:
+    player: 48
+    animal: 48
+    monster: 48
+    misc: 32
+    max: 64
+  activation-range:
+    animal: 32
+    monster: 32
+    misc: 16
+  spawn-limit:
+    monster: 70
+    animal: 15
+    water-animal: 5
+    ambient: 15
+  spawn-rate:
+    monster: 1
+    animal: 400
+performance:
+  fast-path-finding: true
+  path-finding-custom-cooldown: 4
+  path-finding-cooldown-multiplier: 1.0
+  deny-multiple-player-update: false
+  regions-cache-size: 256
+  fast-collision-detection: true
+  full-disable-fire-catching: false
+  item-stack-full-match-rate: 10
+  use-async-lighting: false
+  limits:
+    growth-chunks-per-tick: 650
+    scheduled-blocks-per-tick: 5000
+    collisions-per-entity: 8
+    tile-max-tick-time: 1000
+    entity-max-tick-time: 1000
+    max-tnt-ticks-per-tick: 100
+  redstone:
+    repeater-update-speed: -1
+    torch-update-speed: -1
+    hopper-transfer-delay: 8
+    hopper-check-delay: 8
+network:
+  netty-thread-count: 4
+  connection-throttle: 4000
+  max-player-update-count: 5
+  max-bulk-chunks: 5
+plugin:
+  bungee: false
+  profiling: false
+  metrics: false
+  query: false
+  no-fallback-alias: true
+  tab-complete: true
+debug:
+  thread-contention-monitoring: false
+  bukkit-warning-state: default
+  dump-materials: false
+  fail-fast-overworld-reload: false
+  retry-structure-gen-on-fail: false
+  skip-collision-entity-in-chunk-count: -1
+  disable-cauldron-entity-movement-checks: true
+logging:
+  material-injection: false
+  client-mod-list: false
+  world-leak-debug: false
+  detailed-logging: false
+  dump-chunks-on-deadlock: false
+  dump-heap-on-deadlock: false
+  dump-threads-on-warn: false
+  entity-collision-checks: false
+  entity-speed-removal: false
+  user-login-debug-info: false
+  user-commands: true
+  non-main-thread-chunk-loading: true
+  collision-warn-size: 200
+  entity-count-warn-size: 0
+message:
+  shutdown: Server closed
+  restart: Server is restarting
+  whitelist: You are not whitelisted on this server!
+  unknown-command: Unknown command. Type "/help" for help.
+  server-full: The server is full!
+  outdated-client: Outdated client! Please use {}
+  outdated-server: Outdated server! I'm still on {}
