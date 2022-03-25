@@ -42,9 +42,10 @@
 - микрооптимизации в сохранении чанков и ChunkCache
 
 ### Исправления ошибок
-- исправление ошибок в нескольких местах (NullPointerException, ArrayIndexOutOfBoundsException, ConcurrentModificationException и тд)
+- исправление различныз NullPointerException, ArrayIndexOutOfBoundsException, ConcurrentModificationException
 - синхронизация HashedArrayList во избежание различных ошибок
 - синхронизация получения сущностей через BukkitAPI (ошибки с асинхронными плагинами чата)
 - исправление рекурсивного вызова BiomeDecorator
 - исправление ошибки возникающей при повторяющихся зачарованиях на предметах из-за кривых модов
 - исправления в логике FakePlayers во избежание различных ошибок из-за кривых модов
+- исправление уязвимости CVE-2021-35054 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35054
