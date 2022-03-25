@@ -42,7 +42,7 @@
 - микрооптимизации в сохранении чанков и ChunkCache
 
 ### Исправления ошибок
-- исправление различныз NullPointerException, ArrayIndexOutOfBoundsException, ConcurrentModificationException
+- исправление различных NullPointerException, ArrayIndexOutOfBoundsException, ConcurrentModificationException
 - синхронизация HashedArrayList во избежание различных ошибок
 - синхронизация получения сущностей через BukkitAPI (ошибки с асинхронными плагинами чата)
 - исправление рекурсивного вызова BiomeDecorator
