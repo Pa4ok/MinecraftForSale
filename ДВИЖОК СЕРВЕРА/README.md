@@ -44,6 +44,7 @@
 - оптимизированная реализация Math.atan2
 - оптимизированная реализация Random (xorshift)
 - микрооптимизации в сохранении чанков и ChunkCache
+- кеширование для стандартных правил (GameRule) 
 
 ### Исправления ошибок
 - исправление различных NullPointerException, ArrayIndexOutOfBoundsException, ConcurrentModificationException
