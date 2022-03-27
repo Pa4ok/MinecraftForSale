@@ -60,6 +60,7 @@
 # Setting: performance.deny-multiple-player-update Default: false # Deny muliple player update by C03PacketPlayer
 # Setting: performance.regions-cache-size Default: 256 # Size of regions (union of chunks) cache
 # Setting: performance.fast-collision-detection Default: true # Optimize collision detection
+# Setting: performance.skip-collision-entity-in-chunk-count Default: -1 # Count of mobs in chunk to disable collision calculations for this chunk (-1 to disable)
 # Setting: performance.full-disable-fire-catching Default: false # Disable fire catching include all events
 # Setting: performance.item-stack-full-match-rate Default: 10 # Delay in ticks before item stack full match rate
 # Setting: performance.use-async-lighting Default: false # World async lighting !!!buggy with some mods etc thaumcraft!!!
@@ -92,7 +93,6 @@
 # Setting: debug.dump-materials Default: false # Dumps all materials with their corresponding id's
 # Setting: debug.fail-fast-overworld-reload Default: false # Crash server while secondary overworld loading (prevent ID corruption)
 # Setting: debug.retry-structure-gen-on-fail Default: false # Retry generate world structure on ConcurrentModificationException
-# Setting: debug.skip-collision-entity-in-chunk-count Default: -1 # Count of mobs in chunk to disable collisions calculations (-1 to disable)
 # Setting: debug.disable-cauldron-entity-movement-checks Default: true # Disable all movement checks
 # Setting: debug.log-bukkit-asm-event-executor-debug-info Default: false # Log BukkitASMEventExecutor debug info (many spam)
 # Setting: logging.material-injection Default: false # Log material injection event
@@ -191,6 +191,7 @@ performance:
   deny-multiple-player-update: false
   regions-cache-size: 256
   fast-collision-detection: true
+  skip-collision-entity-in-chunk-count: -1
   full-disable-fire-catching: false
   item-stack-full-match-rate: 10
   use-async-lighting: false
@@ -229,7 +230,6 @@ debug:
   dump-materials: false
   fail-fast-overworld-reload: false
   retry-structure-gen-on-fail: false
-  skip-collision-entity-in-chunk-count: -1
   disable-cauldron-entity-movement-checks: true
   log-bukkit-asm-event-executor-debug-info: false
 logging:
