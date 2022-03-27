@@ -1,7 +1,7 @@
 # Setting: general.max-tab-players-visible Default: -1 # How many players will visible in the tab list
 # Setting: general.player-shuffle Default: 0 # This prevents players from 'gaming' the server, and strategically relogging to increase their position in the tick order
 # Setting: general.allow-nether-portal-besides-overworld Default: false # Allow nether portals in dimensions besides overworld
-# Setting: general.spawn-protect Default: true # Whether to enable Thermos' all-seeing protection in the spawn world
+# Setting: general.spawn-protect Default: false # Whether to enable Thermos' all-seeing protection in the spawn world
 # Setting: general.flowing-lava-decay Default: false # Lava behaves like vanilla water when source block is removed
 # Setting: general.allow-tnt-punishment Default: true # TNT ability to push other entities (including other TNTs)
 # Setting: general.item-merge-radius Default: 2.5 # Item Merge Radius
@@ -13,10 +13,7 @@
 # Setting: general.mob-spawn-range Default: 4 # Radius in chunks around the player in which mobs will spawn
 # Setting: general.autosave Default: 6000 # Number of ticks for each save-all event
 # Setting: general.exact-login-location Default: false # Since Minecraft added the feature of pushing entities out whenever they are stuck inside a block, players have often found themselves above the location they logged out of when logging back in (especially if they were in a cave)
-# Setting: general.watchdog.enable Default: false # Enable spigot watchdog thread to monitoring server status
-# Setting: general.watchdog.timeout Default: 60 # How long in seconds the server should go unresponsive before performing a thread dump in the console and, if configured, attempt to shut down and restart
-# Setting: general.watchdog.restart-on-crush Default: true # Controls whether or not the server will automatically attempt to restart your server when a crash occurs
-# Setting: general.watchdog.restart-script Default: ./start.sh # The location for your server's startup script. This path will be used for the /restart command and for the restart-on-crash option
+# Setting: general.exclude-dead-entity-from-search Default: true # Exclude already dead entity from getting from world (fix some dupes & performance)
 # Setting: world.saving.repeat-invalid-nbt-reading Default: false # Repeat chunk NBT reading on error
 # Setting: world.saving.remove-invalid-chunks Default: false # Remove chunk is NBT reading was failed
 # Setting: world.saving.store-saving-chunks Default: true # Store saving chunks to prevent writing and reading at the same time
@@ -56,13 +53,14 @@
 # Setting: world.spawn-limit.ambient Default: 15 # Amount of ambient creatures (aka, bats) that can spawn per-world
 # Setting: world.spawn-rate.monster Default: 1 # Tick delay for animal spawns
 # Setting: world.spawn-rate.animal Default: 400 # Tick delay for monster spawns
+# Setting: performance.use-bukkit-asm-event-executor Default: true # Enable ASM generated plugin's events execution instead of slowly reflection
 # Setting: performance.fast-path-finding Default: true # Optimize path finding for entity AI
 # Setting: performance.path-finding-custom-cooldown Default: 4 # Cooldown for path finding for entity AI that hasn't default cooldown
 # Setting: performance.path-finding-cooldown-multiplier Default: 1.0 # Cooldown multipier for path finding for entity AI
 # Setting: performance.deny-multiple-player-update Default: false # Deny muliple player update by C03PacketPlayer
 # Setting: performance.regions-cache-size Default: 256 # Size of regions (union of chunks) cache
 # Setting: performance.fast-collision-detection Default: true # Optimize collision detection
-# Setting: performance.full-disable-fire-catching Default: false # [Pa4ok] Disable fire catching include all events
+# Setting: performance.full-disable-fire-catching Default: false # Disable fire catching include all events
 # Setting: performance.item-stack-full-match-rate Default: 10 # Delay in ticks before item stack full match rate
 # Setting: performance.use-async-lighting Default: false # World async lighting !!!buggy with some mods etc thaumcraft!!!
 # Setting: performance.limits.growth-chunks-per-tick Default: 650 # Controls the amount of chunks that will be updated for growth per tick
@@ -86,12 +84,17 @@
 # Setting: plugin.no-fallback-alias Default: true # Don't allow commands of the format plugin:cmd, the plugin: will be removed (recommended to keep at true)
 # Setting: plugin.tab-complete Default: true # Controls whether or not a player should be allowed to press the TAB key to auto-complete commands
 # Setting: debug.thread-contention-monitoring Default: false # Set true to enable Java's thread contention monitoring for thread dumps
+# Setting: debug.watchdog.enable Default: false # Enable spigot watchdog thread to monitoring server status
+# Setting: debug.watchdog.timeout Default: 60 # How long in seconds the server should go unresponsive before performing a thread dump in the console and, if configured, attempt to shut down and restart
+# Setting: debug.watchdog.restart-on-crush Default: true # Controls whether or not the server will automatically attempt to restart your server when a crash occurs
+# Setting: debug.watchdog.restart-script Default: ./start.sh # The location for your server's startup script. This path will be used for the /restart command and for the restart-on-crash option
 # Setting: debug.bukkit-warning-state Default: default # Does the server show warnings when a plugin registers a deprecated event (default/true/false)
 # Setting: debug.dump-materials Default: false # Dumps all materials with their corresponding id's
 # Setting: debug.fail-fast-overworld-reload Default: false # Crash server while secondary overworld loading (prevent ID corruption)
 # Setting: debug.retry-structure-gen-on-fail Default: false # Retry generate world structure on ConcurrentModificationException
-# Setting: debug.skip-collision-entity-in-chunk-count Default: -1 # [Pa4ok] Count of mobs in chunk to disable collisions calculations (-1 to disable)
-# Setting: debug.disable-cauldron-entity-movement-checks Default: true # [Pa4ok] Disable all movement checks
+# Setting: debug.skip-collision-entity-in-chunk-count Default: -1 # Count of mobs in chunk to disable collisions calculations (-1 to disable)
+# Setting: debug.disable-cauldron-entity-movement-checks Default: true # Disable all movement checks
+# Setting: debug.log-bukkit-asm-event-executor-debug-info Default: false # Log BukkitASMEventExecutor debug info (many spam)
 # Setting: logging.material-injection Default: false # Log material injection event
 # Setting: logging.client-mod-list Default: false # Print client's mod list during attempt to join
 # Setting: logging.world-leak-debug Default: false # Log worlds that appear to be leaking (buggy)
@@ -118,7 +121,7 @@ general:
   max-tab-players-visible: -1
   player-shuffle: 0
   allow-nether-portal-besides-overworld: false
-  spawn-protect: true
+  spawn-protect: false
   flowing-lava-decay: false
   allow-tnt-punishment: true
   item-merge-radius: 2.5
@@ -130,11 +133,7 @@ general:
   mob-spawn-range: 4
   autosave: 6000
   exact-login-location: false
-  watchdog:
-    enable: false
-    timeout: 60
-    restart-on-crush: true
-    restart-script: ./start.sh
+  exclude-dead-entity-from-search: true
 world:
   saving:
     repeat-invalid-nbt-reading: false
@@ -185,6 +184,7 @@ world:
     monster: 1
     animal: 400
 performance:
+  use-bukkit-asm-event-executor: true
   fast-path-finding: true
   path-finding-custom-cooldown: 4
   path-finding-cooldown-multiplier: 1.0
@@ -220,12 +220,18 @@ plugin:
   tab-complete: true
 debug:
   thread-contention-monitoring: false
+  watchdog:
+    enable: false
+    timeout: 60
+    restart-on-crush: true
+    restart-script: ./start.sh
   bukkit-warning-state: default
   dump-materials: false
   fail-fast-overworld-reload: false
   retry-structure-gen-on-fail: false
   skip-collision-entity-in-chunk-count: -1
   disable-cauldron-entity-movement-checks: true
+  log-bukkit-asm-event-executor-debug-info: false
 logging:
   material-injection: false
   client-mod-list: false
