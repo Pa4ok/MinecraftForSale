@@ -661,3 +661,6 @@ GraveStone (https://www.curseforge.com/minecraft/mc-mods/gravestone-mod/files/23
 GokiStats [150]:
 1) [Pa4ok] Замена алгоритма поиска тайлов, приводившего к большой нагрузке https://spark.lucko.me/#CGXv4rO8JG
 2) [Pa4ok] Добавление кеширования найденных тайлов (требуется тестирование)
+
+JourneyMap [150]
+1) [Pa4ok] Восстановление совместимости с новыми версиями библиотеки log4j (ее обновляют, чтобы исправить уязвимость)
