@@ -29,3 +29,4 @@
 - MagicBees
 - GraveStone
 - GokiStats
+- JourneyMap
