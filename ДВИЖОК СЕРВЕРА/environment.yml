@@ -24,53 +24,49 @@ world:
   the_end:
     keep-world-loaded: false
     enabled: true
+plugin:
+  default:
+    debug: false
+    remap-nms-v1_7_R4: true
+    remap-nms-v1_7_R3: true
+    remap-nms-v1_7_R1: true
+    remap-nms-v1_6_R3: true
+    remap-nms-v1_5_R3: true
+    remap-nms-pre: false
+    remap-obc-v1_7_R4: true
+    remap-obc-v1_7_R3: true
+    remap-obc-v1_7_R1: true
+    remap-obc-v1_6_R3: true
+    remap-obc-v1_5_R3: true
+    remap-obc-pre: false
+    global-inheritance: true
+    plugin-inheritance: true
+    remap-reflect-field: true
+    remap-reflect-class: true
+    remap-allow-future: false
+    guava-version: 10
+    custom-class-loader: true
+  spark:
+    guava-version: 17
 entity:
   default:
-    net-minecraft-entity-item-EntityItem:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
-    net-minecraft-entity-passive-EntityChicken:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
-    net-minecraft-entity-passive-EntitySheep:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
     net-minecraft-entity-item-EntityMinecartChest:
       tick-no-players: false
       never-ever-tick: false
       tick-interval: 1
-    net-minecraft-entity-player-EntityPlayerMP:
+    net-minecraft-entity-item-EntityItem:
       tick-no-players: false
       never-ever-tick: false
       tick-interval: 1
-    net-minecraft-entity-monster-EntityCreeper:
+    net-minecraft-entity-passive-EntityPig:
       tick-no-players: false
       never-ever-tick: false
       tick-interval: 1
-    net-minecraft-entity-monster-EntitySpider:
+    net-minecraft-entity-passive-EntityCow:
       tick-no-players: false
       never-ever-tick: false
       tick-interval: 1
-    net-minecraft-entity-monster-EntitySkeleton:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
-    net-minecraft-entity-monster-EntityZombie:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
-    net-minecraft-entity-monster-EntityWitch:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
-    net-minecraft-entity-passive-EntitySquid:
-      tick-no-players: false
-      never-ever-tick: false
-      tick-interval: 1
-    net-minecraft-entity-item-EntityFallingBlock:
+    net-minecraft-entity-passive-EntityWolf:
       tick-no-players: false
       never-ever-tick: false
       tick-interval: 1

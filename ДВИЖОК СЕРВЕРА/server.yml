@@ -84,7 +84,7 @@
 # Setting: plugin.query Default: false # Does the server return the list of plugins when queried remotely
 # Setting: plugin.no-fallback-alias Default: true # Don't allow commands of the format plugin:cmd, the plugin: will be removed (recommended to keep at true)
 # Setting: plugin.tab-complete Default: true # Controls whether or not a player should be allowed to press the TAB key to auto-complete commands
-# Setting: debug.thread-contention-monitoring Default: false # Set true to enable Java's thread contention monitoring for thread dumps
+# Setting: debug.thread-contention-monitoring Default: true # Set true to enable Java's thread contention monitoring for thread dumps
 # Setting: debug.watchdog.enable Default: false # Enable spigot watchdog thread to monitoring server status
 # Setting: debug.watchdog.timeout Default: 60 # How long in seconds the server should go unresponsive before performing a thread dump in the console and, if configured, attempt to shut down and restart
 # Setting: debug.watchdog.restart-on-crush Default: true # Controls whether or not the server will automatically attempt to restart your server when a crash occurs
@@ -220,7 +220,7 @@ plugin:
   no-fallback-alias: true
   tab-complete: true
 debug:
-  thread-contention-monitoring: false
+  thread-contention-monitoring: true
   watchdog:
     enable: false
     timeout: 60
