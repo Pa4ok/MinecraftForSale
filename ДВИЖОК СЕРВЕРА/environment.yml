@@ -43,9 +43,7 @@ plugin:
     plugin-inheritance: true
     remap-reflect-field: true
     remap-reflect-class: true
-    remap-allow-future: false
     guava-version: 10
-    custom-class-loader: true
   spark:
     guava-version: 17
 entity:
