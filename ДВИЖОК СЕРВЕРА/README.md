@@ -55,6 +55,7 @@
 - оптимизированное выпадение вещей из сломанного сундука (без дополнительного расстака)
 - микрооптимизации в сохранении чанков и ChunkCache
 - кеширование для стандартных правил (GameRules)
+- асинхронная загрузка данных игрока для голов (TileEntitySkull)
 
 ### Исправления ошибок
 - исправление различных NullPointerException, ArrayIndexOutOfBoundsException, ConcurrentModificationException
@@ -64,4 +65,4 @@
 - исправление ошибки возникающей при повторяющихся зачарованиях на предметах из-за кривых модов
 - исправления в логике FakePlayer'ов для избежания различных ошибок из-за кривых модов
 - исправление уязвимости CVE-2021-35054 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-35054
-- исправление уязвимости CVE-2021-44228 https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2021-44228
+- исправление уязвимости CVE-2021-44228 https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228

@@ -22,7 +22,7 @@
 # Setting: world.saving.truncate-region-size Default: 0 # Truncate region file larger than N MiB (0 - disable)
 # Setting: world.saving.large-chunk-log-rate Default: 0.8 # Percentage of maximum chunk size after which chunk saving will be logged
 # Setting: world.chunk.load-on-request Default: true # Forces Chunk Loading on 'Provide' requests (speedup for mods that don't check if a chunk is loaded
-# Setting: world.chunk.load-on-forge-tick Default: false # Forces Chunk Loading during Forge Server Tick events
+# Setting: world.chunk.load-on-forge-tick Default: true # Forces Chunk Loading during Forge Server Tick events
 # Setting: world.chunk.unload-grace-period Default: 0 # Grace period of no-ticks before unload
 # Setting: world.chunk.gc.grace-period Default: 600 # The ticks between each chunk garbage collection consideration (0 - disabled)
 # Setting: world.chunk.gc.load-threshold Default: 0 # Number of chunks that need to be loaded since the last garbage collection before considering garbage collection (0 - gc only by grace-period
@@ -64,6 +64,10 @@
 # Setting: performance.full-disable-fire-catching Default: false # Disable fire catching include all events
 # Setting: performance.item-stack-full-match-rate Default: 10 # Delay in ticks before item stack full match rate
 # Setting: performance.use-async-lighting Default: false # World async lighting !!!buggy with some mods etc thaumcraft!!!
+# Setting: performance.activation-range.cache-mode Default: false # Use ONLY if view distance much more than activation range (example: 8 and 4)
+# Setting: performance.activation-range.cache-purge-period Default: 127 # Set ONLY 2^n-1 values (recommended 63 & more)
+# Setting: performance.activation-range.update-modifier Default: 10 # Gives activate for multiple ticks in future
+# Setting: performance.chest-drop-optimization Default: true # Drop full stacks immediately instead of creating parts
 # Setting: performance.limits.growth-chunks-per-tick Default: 650 # Controls the amount of chunks that will be updated for growth per tick
 # Setting: performance.limits.scheduled-blocks-per-tick Default: 5000 # Maximum amount of blocks than can be scheduled per tick
 # Setting: performance.limits.collisions-per-entity Default: 8 # Max Entity Collisions
@@ -74,6 +78,9 @@
 # Setting: performance.redstone.torch-update-speed Default: -1 # How many milliseconds the server must ignore before trying redstoneTorch updates
 # Setting: performance.redstone.hopper-transfer-delay Default: 8 # The time in ticks between when a hopper pushes/pulls/receives items and when the hopper pushes/pulls more items
 # Setting: performance.redstone.hopper-check-delay Default: 8 # The time in ticks hoppers attempt to push/pull items since the last attempt
+# Setting: performance.player-skull.async-load Default: true # Use async loading of player skulls (skins requests may produce server thread waiting)
+# Setting: performance.player-skull.async-thread-pool-size Default: 2 # Max thread count in pool
+# Setting: performance.player-skull.async-max-queue-size Default: 100 # Max thread pool queue size (when this amount is reached, skins will not be loaded)
 # Setting: network.netty-thread-count Default: 4 # Controls the amount of threads Netty will use to perform networking (-1 = available processors)
 # Setting: network.connection-throttle Default: 4000 # The delay before a client is allowed to connect again after a recent connection attempt
 # Setting: network.max-player-update-count Default: 5 # Max count of player updates by C03PacketPlayer
@@ -95,6 +102,7 @@
 # Setting: debug.retry-structure-gen-on-fail Default: false # Retry generate world structure on ConcurrentModificationException
 # Setting: debug.disable-cauldron-entity-movement-checks Default: true # Disable all movement checks
 # Setting: debug.log-bukkit-asm-event-executor-debug-info Default: false # Log BukkitASMEventExecutor debug info (many spam)
+# Setting: debug.debug-entity-tracker Default: true # Rarely print to console some info for next engine updates
 # Setting: logging.material-injection Default: false # Log material injection event
 # Setting: logging.client-mod-list Default: false # Print client's mod list during attempt to join
 # Setting: logging.world-leak-debug Default: false # Log worlds that appear to be leaking (buggy)
@@ -107,6 +115,7 @@
 # Setting: logging.user-login-debug-info Default: false # Set true to enable debugging user's login process
 # Setting: logging.user-commands Default: true # Controls whether or not to print player commands to console/log which will be saved in your logs folder in your servers directory
 # Setting: logging.non-main-thread-chunk-loading Default: true # Log chunk loading from not 'Server Thread'
+# Setting: logging.re-add-tracking-entity Default: true # Log readding tracking entity (already tracking), disable to prevent console spam
 # Setting: logging.collision-warn-size Default: 200 # Number of colliding entities in one spot before logging a warning. Set to 0 to disable
 # Setting: logging.entity-count-warn-size Default: 0 # Number of entities in one dimension logging a warning. Set to 0 to disable
 # Setting: message.shutdown Default: Server closed # Server shutdown message
@@ -129,7 +138,7 @@ general:
   item-despawn-rate: 6000
   arrow-despawn-rate: 1200
   random-light-updates: false
-  spigot-view-distance: 4
+  spigot-view-distance: 6
   mob-spawn-range: 4
   autosave: 6000
   exact-login-location: false
@@ -145,8 +154,8 @@ world:
     large-chunk-log-rate: 0.8
   chunk:
     load-on-request: true
-    load-on-forge-tick: false
-    unload-grace-period: 0
+    load-on-forge-tick: true
+    unload-grace-period: 20
     gc:
       grace-period: 600
       load-threshold: 0
@@ -166,7 +175,7 @@ world:
     sapling: 100
     wheat: 100
   tracking-range:
-    player: 48
+    player: 64
     animal: 48
     monster: 48
     misc: 32
@@ -189,14 +198,19 @@ performance:
   path-finding-custom-cooldown: 4
   path-finding-cooldown-multiplier: 1.0
   deny-multiple-player-update: false
-  regions-cache-size: 256
+  regions-cache-size: 8192
   fast-collision-detection: true
   skip-collision-entity-in-chunk-count: -1
-  full-disable-fire-catching: false
+  full-disable-fire-catching: true
   item-stack-full-match-rate: 10
   use-async-lighting: false
+  activation-range:
+    cache-mode: true
+    cache-purge-period: 127
+    update-modifier: 10
+  chest-drop-optimization: true
   limits:
-    growth-chunks-per-tick: 650
+    growth-chunks-per-tick: 1000
     scheduled-blocks-per-tick: 5000
     collisions-per-entity: 8
     tile-max-tick-time: 1000
@@ -207,10 +221,14 @@ performance:
     torch-update-speed: -1
     hopper-transfer-delay: 8
     hopper-check-delay: 8
+  player-skull:
+    async-load: true
+    async-thread-pool-size: 2
+    async-max-queue-size: 100
 network:
   netty-thread-count: 4
   connection-throttle: 4000
-  max-player-update-count: 5
+  max-player-update-count: 20
   max-bulk-chunks: 5
 plugin:
   bungee: false
@@ -232,6 +250,7 @@ debug:
   retry-structure-gen-on-fail: false
   disable-cauldron-entity-movement-checks: true
   log-bukkit-asm-event-executor-debug-info: false
+  debug-entity-tracker: true
 logging:
   material-injection: false
   client-mod-list: false
@@ -245,13 +264,14 @@ logging:
   user-login-debug-info: false
   user-commands: true
   non-main-thread-chunk-loading: true
+  re-add-tracking-entity: true
   collision-warn-size: 200
   entity-count-warn-size: 0
 message:
-  shutdown: Server closed
-  restart: Server is restarting
-  whitelist: You are not whitelisted on this server!
-  unknown-command: Unknown command. Type "/help" for help.
-  server-full: The server is full!
+  shutdown: Сервер выключен или находится на рестарте
+  restart: Сервер ушел на рестарт
+  whitelist: Технические работы
+  unknown-command: Неизвестная команда
+  server-full: На сервере нет свободных слотов
   outdated-client: Outdated client! Please use {}
   outdated-server: Outdated server! I'm still on {}
